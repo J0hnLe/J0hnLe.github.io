@@ -3,9 +3,18 @@
         <title>Resume</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
+        <style>
+            /* Dark mode styles */
+            body {
+                background-color: #333;
+            }
+            .dark-mode canvas {
+                filter: invert(1) hue-rotate(180deg) contrast(0.8);
+            }
+        </style>
     </head>
     <body>
-        <div id="pdf-viewer">
+        <div id="pdf-viewer" class="dark-mode">
         </div>
         <script>
             function loadAndDisplayPdf(pdfUrl) {
