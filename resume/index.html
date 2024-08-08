@@ -3,7 +3,9 @@
         <title>Resume</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
-        <script>
+    </head>
+    <body>
+        <div id="pdf-viewer"><script>
 // Function to load and render the PDF
 function loadAndDisplayPdf(pdfUrl) {
   // Create a container element to hold the PDF canvas
@@ -48,9 +50,6 @@ function loadAndDisplayPdf(pdfUrl) {
 }
 
 loadAndDisplayPdf('JohnLeResume.pdf');
-</script>
-    </head>
-    <body>
-        <div id="pdf-viewer"></div>
+</script></div>
     </body>
 </html>
