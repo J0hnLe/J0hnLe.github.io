@@ -6,26 +6,45 @@
         <script>
 // Function to load and render the PDF
 function loadAndDisplayPdf(pdfUrl) {
-    fetch(pdfUrl).then(response => response.arrayBuffer())
-        .then(bytes => pdfjsLib.getDocument({data: bytes}).promise.then(document => {
-            const pageNumber = 1; // Display first page
-            document.getPage(pageNumber).then(page => {
-                const scale = 1.5;
-                const viewport = page.getViewport({scale});
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
+  // Create a container element to hold the PDF canvas
+  const pdfViewer = document.getElementById('pdf-viewer');
 
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                page.render(renderContext).then(() => {
-                    document.getElementById('pdf-viewer').appendChild(canvas);
-                });
-            });
-        }));
+  // Use async/await to simplify the promise chain
+  async function loadPdf() {
+    try {
+      const response = await fetch(pdfUrl);
+      const bytes = await response.arrayBuffer();
+      const pdfDocument = await pdfjsLib.getDocument({ data: bytes }).promise;
+
+      // Display the first page of the PDF
+      const pageNumber = 1;
+      const page = await pdfDocument.getPage(pageNumber);
+
+      // Set the scale and viewport for the page
+      const scale = 1.5;
+      const viewport = page.getViewport({ scale });
+
+      // Create a canvas element to render the page
+      const canvas = document.createElement('canvas');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      const context = canvas.getContext('2d');
+
+      // Render the page on the canvas
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+      await page.render(renderContext);
+
+      // Append the canvas to the PDF viewer container
+      pdfViewer.appendChild(canvas);
+    } catch (error) {
+      console.error('Error loading PDF:', error);
+    }
+  }
+
+  loadPdf();
 }
 
 loadAndDisplayPdf('JohnLeResume.pdf');
