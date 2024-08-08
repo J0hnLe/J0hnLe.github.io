@@ -1,56 +1,50 @@
 <html>
     <head>
         <title>Resume</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
     </head>
     <body>
-        <div id="pdf-viewer"></div>
+        <div id="pdf-viewer">
+        </div>
         <script>
-// Function to load and render the PDF
-function loadAndDisplayPdf(pdfUrl) {
-  // Create a container element to hold the PDF canvas
-  const pdfViewer = document.getElementById('pdf-viewer');
+            function loadAndDisplayPdf(pdfUrl) {
+                const pdfViewer = document.getElementById('pdf-viewer');
 
-  // Use async/await to simplify the promise chain
-  async function loadPdf() {
-    try {
-      const response = await fetch(pdfUrl);
-      const bytes = await response.arrayBuffer();
-      const pdfDocument = await pdfjsLib.getDocument({ data: bytes }).promise;
+                async function loadPdf() {
+                    try {
+                        const response = await fetch(pdfUrl);
+                        const bytes = await response.arrayBuffer();
+                        const pdfDocument = await pdfjsLib.getDocument({ data: bytes }).promise;
 
-      // Display the first page of the PDF
-      const pageNumber = 1;
-      const page = await pdfDocument.getPage(pageNumber);
+                        for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber++) {
+                            const page = await pdfDocument.getPage(pageNumber);
 
-      // Set the scale and viewport for the page
-      const scale = 1.5;
-      const viewport = page.getViewport({ scale });
+                            const scale = 1.5;
+                            const viewport = page.getViewport({ scale });
 
-      // Create a canvas element to render the page
-      const canvas = document.createElement('canvas');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-      const context = canvas.getContext('2d');
+                            const canvas = document.createElement('canvas');
+                            canvas.height = viewport.height;
+                            canvas.width = viewport.width;
+                            const context = canvas.getContext('2d');
 
-      // Render the page on the canvas
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-      await page.render(renderContext);
+                            const renderContext = {
+                                canvasContext: context,
+                                viewport: viewport
+                            };
+                            await page.render(renderContext);
 
-      // Append the canvas to the PDF viewer container
-      pdfViewer.appendChild(canvas);
-    } catch (error) {
-      console.error('Error loading PDF:', error);
-    }
-  }
+                            pdfViewer.appendChild(canvas);
+                        }
+                    } catch (error) {
+                        console.error('Error loading PDF:', error);
+                    }
+                }
 
-  loadPdf();
-}
+                loadPdf();
+            }
 
-loadAndDisplayPdf('JohnLeResume.pdf');
-</script>
+            loadAndDisplayPdf('JohnLeResume.pdf');
+        </script>
     </body>
 </html>
