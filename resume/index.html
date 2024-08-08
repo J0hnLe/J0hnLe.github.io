@@ -4,17 +4,32 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
         <style>
-            /* Dark mode styles */
+            /* Windows Mica style theme */
             body {
-                background-color: #333;
+                background-color: #f2f2f2;
             }
-            .dark-mode canvas {
-                filter: invert(1) hue-rotate(180deg) contrast(0.8);
+            #pdf-viewer {
+                background-color: #fff;
+                border-radius: 12px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100vw;
+                overflow-y: auto;
+            }
+            #pdf-viewer canvas {
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
             }
         </style>
     </head>
     <body>
-        <div id="pdf-viewer" class="dark-mode">
+        <div id="pdf-viewer">
         </div>
         <script>
             function loadAndDisplayPdf(pdfUrl) {
