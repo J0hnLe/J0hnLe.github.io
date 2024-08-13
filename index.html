@@ -27,30 +27,7 @@
  
 <style>.overlay-image { position: absolute; top: 0; right: 0; bottom: 0; left: 50%; background-image: url('https://johnle.org/img/ckt.png'); background-size: cover; background-repeat: no-repeat; }</style>
 <style>#scrollingPane {max-height: 90%;padding: 20px;position: fixed;top: 0;right: 0;width: 300px;height: 100%;overflow-y: scroll;scrollbar-width: none;-ms-overflow-style: none;}#scrollingPane::-webkit-scrollbar {display: none;}#scrollingPane img {width: 100%;margin-bottom: 20px;}</style>
-<script>
-    var scrollInterval = 5000; // Time between scrolls in milliseconds
-    var lastScrollTop = 0;
-
-    document.getElementById("scrollingPane").addEventListener("scroll", function() {
-        var scrollTop = this.scrollTop;
-        if (scrollTop === lastScrollTop) return;
-        lastScrollTop = scrollTop;
-
-        // Scroll up
-        if (scrollTop > 0) {
-            this.scrollTop -= 1;
-        } else {
-            // Reset to start
-            this.scrollTop = 0;
-        }
-    }, false);
-
-    setInterval(function() {
-        document.getElementById("scrollingPane").scrollTop += 1;
-    }, scrollInterval);
-</script>
- 
- <meta http-equiv="content-security-policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><style>img[src="data:,"],source[src="data:,"]{display:none!important}</style></head>
+<meta http-equiv="content-security-policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><style>img[src="data:,"],source[src="data:,"]{display:none!important}</style></head>
 <body class="framer-body-augiA20Il">
  
  
@@ -59,6 +36,34 @@
     <img src="./img/me.jpg" alt="Company Logo 1">
     <img src="./img/ckt.png" alt="Company Logo 2">
 </div>
+ <script>
+        var scrollInterval = 5000; // Time between scrolls in milliseconds
+        var lastScrollTop = 0;
+
+        // Ensure the scrollingPane exists before adding the event listener
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const scrollingPane = document.getElementById("scrollingPane");
+            if (scrollingPane) {
+                scrollingPane.addEventListener("scroll", function() {
+                    var scrollTop = this.scrollTop;
+                    if (scrollTop === lastScrollTop) return;
+                    lastScrollTop = scrollTop;
+
+                    // Scroll up
+                    if (scrollTop > 0) {
+                        this.scrollTop -= 1;
+                    } else {
+                        // Reset to start
+                        this.scrollTop = 0;
+                    }
+                }, false);
+
+                setInterval(function() {
+                    scrollingPane.scrollTop += 1;
+                }, scrollInterval);
+            }
+        });
+    </script>
  <div id="main" data-framer-hydrate-v2="{&quot;routeId&quot;:&quot;augiA20Il&quot;,&quot;localizationId&quot;:&quot;default&quot;,&quot;localeId&quot;:&quot;default&quot;}" data-framer-ssr-released-at="2023-10-19T14:59:39.141Z" data-framer-page-optimized-at="2023-10-27T18:18:28.888Z"><div class="framer-uymbm framer-ImWaF framer-EZfPU framer-zIUYv" style="display:contents"><div class="framer-72rtr7" style="min-height:100vh;width:auto"><div class="framer-rjyxtn"><div class="framer-3wlist-container" data-framer-appear-id="3wlist" style="opacity:1;transform:none"><div class="framer-IXJEt framer-LGDfB framer-ImWaF framer-v-1e5xonn" style="display:contents" tabindex="0"><div class="framer-1e5xonn" data-framer-name="Variant 1" style="width:100%;opacity:1"><div class="framer-2qussj" data-framer-name="Frame" style="border-radius:16px;opacity:1"><div class="framer-3jn2oo" style="opacity:1"><div class="framer-yweoc" data-framer-name="Profile Image" style="border-radius:40px;opacity:1"><div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0" data-framer-background-image-wrapper="true"><img src="./img/me.jpg" alt="" sizes="80px" style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover;image-rendering:auto"></div></div><div class="framer-1gsjhh6" data-framer-name="Content" style="opacity:1"><div class="framer-1jh4t5h" data-framer-name="Name" style="opacity:1"><div class="framer-179v8oe" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--extracted-1sp2osd:var(--token-55eb047e-6490-4b7d-a079-18fd39e39048,rgb(82,82,82));--extracted-f12k5c:var(--token-55eb047e-6490-4b7d-a079-18fd39e39048,rgb(82,82,82));--extracted-gdpscs:var(--token-c3cb0cd5-b51f-4513-b6f3-4eb1d93cac0a,rgb(22,22,22));--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><h1 class="framer-text framer-styles-preset-3nqyhf" data-styles-preset="YAP816Y5n" style="--framer-text-color:var(--extracted-gdpscs)"><span style="--framer-text-color:var(--extracted-1sp2osd)" class="framer-text">John Le</span>
 I'm an engineering professional based in Rochester, NY with a focus on thinking outside of the box to create and support innovative solutions.<span style="--framer-text-color:var(--extracted-f12k5c)" class="framer-text"></span></h1></div></div></div></div></div></div></div></div><div class="framer-17y9syq" style="opacity:1;transform:none"><div class="framer-7nlwpy"><div class="framer-5pzeu" data-framer-name="Sections" name="Sections"><div class="framer-fsbsw0-container"><div class="framer-T28Jp framer-BA6vY framer-v-qlb0ao" style="display:contents" tabindex="0"><div class="framer-qlb0ao" data-framer-name="Title" style="opacity:1"><div class="framer-ubu9v2" style="opacity:1"><div class="framer-fy2w6j" data-framer-name="Title" style="opacity:1"><div class="framer-1sorwr7" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><h2 class="framer-text framer-styles-preset-1wml6uu" data-styles-preset="fVxnimdqP">Contact</h2></div></div></div></div></div></div></div><div class="framer-krg9wz-container"><div class="framer-g2STr framer-jBSFu framer-EZfPU framer-v-1xwy8eu" style="display:contents" tabindex="0"><a class="framer-1xwy8eu framer-mav2vh" data-framer-name="Deafult" data-highlight="true" style="background-color:rgba(0,0,0,0);border-radius:16px;width:100%;opacity:1" target="_blank" rel="noopener" href="https://linkedin.com/in/johnle"><div class="framer-1ar6aql" data-framer-name="Frame" style="border-radius:16px;opacity:1"><div class="framer-5h84r3" data-framer-name="Content" style="opacity:1"><div class="framer-t1h2bk" data-framer-name="Icon" style="border-radius:80px;opacity:1"><div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0" data-framer-background-image-wrapper="true"><img alt="" sizes="56px" style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover;image-rendering:auto" src="./img/linkedin.png"></div><div class="framer-1dg59br" data-framer-name="Icon" style="opacity:1"></div></div><div class="framer-q16cw5" data-framer-name="Text" style="opacity:1"><div class="framer-1rki992" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--extracted-a0htzi:var(--token-c3cb0cd5-b51f-4513-b6f3-4eb1d93cac0a,rgb(22,22,22));--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><h3 class="framer-text framer-styles-preset-12lj5ox" data-styles-preset="YckFIlg3V" style="--framer-text-color:var(--extracted-a0htzi)">LinkedIn</h3></div><div class="framer-859e67" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--extracted-r6o4lv:var(--token-55eb047e-6490-4b7d-a079-18fd39e39048,rgb(82,82,82));--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><p class="framer-text framer-styles-preset-5jc6kk" data-styles-preset="uN7ARtA8D" style="--framer-text-color:var(--extracted-r6o4lv)">/in/JohnLe</p></div></div></div></div></a></div></div><div class="framer-1qc5vnp-container"><div class="framer-g2STr framer-jBSFu framer-EZfPU framer-v-1xwy8eu" style="display:contents" tabindex="0"><a class="framer-1xwy8eu framer-mav2vh" data-framer-name="Deafult" data-highlight="true" style="background-color:rgba(0,0,0,0);width:100%;opacity:1;border-radius:16px" target="_blank" rel="noopener" href="mailto:john@johnle.org"><div class="framer-1ar6aql" data-framer-name="Frame" style="opacity:1;border-radius:16px"><div class="framer-5h84r3" data-framer-name="Content" style="opacity:1"><div class="framer-t1h2bk" data-framer-name="Icon" style="opacity:1;border-radius:80px"><div style="position:absolute;border-radius:inherit;top:0;right:0;bottom:0;left:0" data-framer-background-image-wrapper="true"><img alt="" sizes="56px" style="display:block;width:100%;height:100%;border-radius:inherit;object-position:center;object-fit:cover;image-rendering:auto" src="./img/email.jpg"></div><div class="framer-1dg59br" data-framer-name="Icon" style="opacity:1"></div></div><div class="framer-q16cw5" data-framer-name="Text" style="opacity:1"><div class="framer-1rki992" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--extracted-a0htzi:var(--token-c3cb0cd5-b51f-4513-b6f3-4eb1d93cac0a,rgb(22,22,22));--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><h3 class="framer-text framer-styles-preset-12lj5ox" data-styles-preset="YckFIlg3V" style="--framer-text-color:var(--extracted-a0htzi)">Email</h3></div><div class="framer-859e67" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--extracted-r6o4lv:var(--token-55eb047e-6490-4b7d-a079-18fd39e39048,rgb(82,82,82));--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><p class="framer-text framer-styles-preset-5jc6kk" data-styles-preset="uN7ARtA8D" style="--framer-text-color:var(--extracted-r6o4lv)">John@JohnLe.org</p></div></div></div></div></a></div></div></div><div class="framer-1ebaff0"><div class="framer-11u2w5p" data-framer-name="Sections" name="Sections"><div class="framer-10kcfrd-container"><div class="framer-T28Jp framer-BA6vY framer-v-qlb0ao" style="display:contents" tabindex="0"><div class="framer-qlb0ao" data-framer-name="Title" style="opacity:1"><div class="framer-ubu9v2" style="opacity:1"><div class="framer-fy2w6j" data-framer-name="Title" style="opacity:1"><div class="framer-1sorwr7" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;--framer-link-text-color:rgb(0,153,255);--framer-link-text-decoration:underline;--framer-paragraph-spacing:0px;transform:none;opacity:1" data-framer-component-type="RichTextContainer"><h2 class="framer-text framer-styles-preset-1wml6uu" data-styles-preset="fVxnimdqP">About Me</h2></div></div></div></div></div></div></div><div class="framer-f5m8pf"><div class="framer-7v09br" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none" data-framer-component-type="RichTextContainer"><p class="framer-text framer-styles-preset-21ogod" data-styles-preset="xZndidUCt" style="--framer-text-color:var(--token-55eb047e-6490-4b7d-a079-18fd39e39048,rgb(82,82,82))">I'm John, an engineering professional based in Rochester, NY, with a deep-rooted passion for innovation and continuous improvement. My journey has been shaped by exploring various branches of engineering, programming languages, and unique methods of innovation since my youth. Today, I've honed my skills in electrical engineering and RF communications, and I'm dedicated to pushing the boundaries of technology by tackling complex problems.
 
