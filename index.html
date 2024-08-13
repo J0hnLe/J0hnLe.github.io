@@ -24,9 +24,37 @@
 <link rel="modulepreload" href="./lib/js/chunk-ECHZREWK.mjs">
 <link rel="stylesheet" data-framer-css="true" href="./lib/css/style.css">
 <meta name="referrer" content="no-referrer">
+ 
 <style>.overlay-image { position: absolute; top: 0; right: 0; bottom: 0; left: 50%; background-image: url('https://johnle.org/img/ckt.png'); background-size: cover; background-repeat: no-repeat; }</style>
+<style>#scrollingPane {max-height: 90%;padding: 20px;position: fixed;top: 0;right: 0;width: 300px;height: 100%;overflow-y: scroll;scrollbar-width: none;-ms-overflow-style: none;}#scrollingPane::-webkit-scrollbar {display: none;}#scrollingPane img {width: 100%;margin-bottom: 20px;}</style>
+<script>
+    var scrollInterval = 5000; // Time between scrolls in milliseconds
+    var lastScrollTop = 0;
+
+    document.getElementById("scrollingPane").addEventListener("scroll", function() {
+        var scrollTop = this.scrollTop;
+        if (scrollTop === lastScrollTop) return;
+        lastScrollTop = scrollTop;
+
+        // Scroll up
+        if (scrollTop > 0) {
+            this.scrollTop -= 1;
+        } else {
+            // Reset to start
+            this.scrollTop = 0;
+        }
+    }, false);
+
+    setInterval(function() {
+        document.getElementById("scrollingPane").scrollTop += 1;
+    }, scrollInterval);
+</script>
+ <div id="scrollingPane" style="position: fixed; top: 0; right: 0; width: 300px; height: 100%; overflow-y: scroll;">
+    <img src="./img/me.jpg" alt="Company Logo 1">
+    <img src="./img/ckt.png" alt="Company Logo 2">
+</div>
  <meta http-equiv="content-security-policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><style>img[src="data:,"],source[src="data:,"]{display:none!important}</style></head>
- <body class="framer-body-augiA20Il">
+<body class="framer-body-augiA20Il">
  
  
  <div class="overlay-image"></div>
