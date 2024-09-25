@@ -25,36 +25,26 @@
     <link rel="stylesheet" data-framer-css="true" href="./lib/css/style.css">
     <meta name="referrer" content="no-referrer">
     <style>
-      #scrollingPane {
-        position: fixed;
-        /* or absolute */
-        top: 0;
-        right: 0;
-        width: 300px;
-        height: 100%;
-        overflow-y: scroll;
-        z-index: 9999;
-        /* High z-index value to bring it on top */
-        scrollbar-width: none;
-        /* For Firefox */
-        -ms-overflow-style: none;
-        /* For Internet Explorer and Edge */
-      }
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #393939;
+}
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
 
-      #scrollingPane::-webkit-scrollbar {
-        display: none;
-        /* For Chrome, Safari, and Opera */
-      }
+::-webkit-scrollbar-track {
+    background: #393939; /* Color of the track */
+}
 
-      .header {
-        background-color: #000;
-        /* Light grey background */
-        padding: 10px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        color: #fff;
-      }
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+}
     </style>
     <meta http-equiv="content-security-policy" content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;">
     <style>
