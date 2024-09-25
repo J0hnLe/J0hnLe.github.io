@@ -25,18 +25,6 @@
     <link rel="stylesheet" data-framer-css="true" href="./lib/css/style.css">
     <meta name="referrer" content="no-referrer">
     <style>
-      .overlay-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 50%;
-        background-image: url('https://johnle.org/img/ckt.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-    </style>
-    <style>
       #scrollingPane {
         position: fixed;
         /* or absolute */
@@ -78,28 +66,6 @@
   </head>
   <body class="framer-body-augiA20Il">
     <div class="overlay-image"></div>
-    <div id="scrollingPane" style="position: fixed; top: 0; right: 0; width: 300; height: 30%; overflow-y: scroll;">
-      <div class="header">Companies I've Worked For</div>
-      <a href="https://utcretail.com">
-        <img src="./img/utcretail.png" alt="UTC Retail" width="300" height="54">
-      </a>
-      <a href="https://l3harris.com">
-        <img src="./img/l3harris.png" alt="L3Harris" width="300" height="64.453125">
-      </a>
-    </div>
-    <script>
-      function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-      }
-      document.addEventListener('DOMContentLoaded', (event) => {
-        if (isMobileDevice()) {
-          var scrollingPane = document.getElementById("scrollingPane");
-          if (scrollingPane) {
-            scrollingPane.parentNode.removeChild(scrollingPane);
-          }
-        }
-      });
-    </script>
     <div id="main" data-framer-hydrate-v2="{&quot;routeId&quot;:&quot;augiA20Il&quot;,&quot;localizationId&quot;:&quot;default&quot;,&quot;localeId&quot;:&quot;default&quot;}" data-framer-ssr-released-at="2023-10-19T14:59:39.141Z" data-framer-page-optimized-at="2023-10-27T18:18:28.888Z">
       <div class="framer-uymbm framer-ImWaF framer-EZfPU framer-zIUYv" style="display:contents">
         <div class="framer-72rtr7" style="min-height:100vh;width:auto">
