@@ -113,7 +113,7 @@ This project demonstrates a comprehensive approach to upgrading legacy systems, 
       image: './img/utcs.png',
     },
     'WinPE-VNC': {
-      title: 'Project 2',
+      title: 'WinPE-VNC',
       description: `WinPE-VNC is a project that integrates Virtual Network Computing (VNC) capabilities into a Windows Preinstallation Environment (WinPE) using various tools and technologies. 
 
 The main components of this project include:
