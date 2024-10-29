@@ -152,7 +152,7 @@ Technical Components
       url: 'https://github.com/9-5/WinPE-VNC',
     },
     'Chromium Intelligence': {
-      title: 'Chromium Intelligence'
+      title: 'Chromium Intelligence',
       description: `Chromium-Intelligence is a project that integrates advanced AI-powered text and image processing capabilities into Chromium-based browsers using Google's Gemini API and various web technologies.
 
 The main components of this project include:
