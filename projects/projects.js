@@ -151,6 +151,43 @@ Technical Components
       image: './img/winpe-vnc.png',
       url: 'https://github.com/9-5/WinPE-VNC',
     },
+    'Chromium-Intelligence': {
+      title: 'Chromium Intelligence'
+      description: `Chromium-Intelligence is a project that integrates advanced AI-powered text and image processing capabilities into Chromium-based browsers using Google's Gemini API and various web technologies.
+
+The main components of this project include:
+- Chromium Extension: A browser add-on built using Manifest V3 for enhanced security and performance.
+- Gemini API: Google's state-of-the-art language model for natural language processing and image analysis.
+- Content Scripts: JavaScript files that interact with web pages to process selected text and images.
+- Background Service Worker: Manages API requests and extension functionality.
+
+Key Features
+- Provides context menu integration for easy access to AI-powered tools.
+- Offers multiple text operations including proofreading, rewriting, and summarization.
+- Allows custom prompt-based analysis of images and PDF documents.
+- Supports secure API key management and local storage of user preferences.
+
+Technical Implementation
+The project involves developing a Chromium extension with the following components:
+- Implementing a service worker for background tasks and API communication.
+- Creating content scripts for webpage interaction and UI manipulation.
+- Developing a popup interface for API key management and settings.
+
+The setup process includes:
+- Configuring the manifest file to define extension permissions and structure.
+- Implementing secure storage for the Gemini API key using Chrome Storage API.
+- Creating modular JavaScript functions for various text and image processing tasks.
+- Designing a user-friendly popup interface for extension settings.
+
+The extension integrates seamlessly with the browser's context menu, allowing users to process selected text, images, and PDF links directly from web pages.
+
+Technical Components
+- JavaScript: The primary programming language for extension development.
+- Chrome Extension APIs: Used for browser integration and functionality.
+- Fetch API: Utilized for making HTTP requests to the Gemini API.
+- HTML/CSS: Used for creating the extension's popup interface.
+- JSON: Used for manifest configuration and data interchange.`,
+    },
     'Project': {
       title: 'Project',
       description: 'This is a description for Project.',
