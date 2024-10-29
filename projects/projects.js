@@ -187,6 +187,7 @@ Technical Components
 - Fetch API: Utilized for making HTTP requests to the Gemini API.
 - HTML/CSS: Used for creating the extension's popup interface.
 - JSON: Used for manifest configuration and data interchange.`,
+      url: 'https://github.com/9-5/Chromium-Intelligence',
     },
     'Project': {
       title: 'Project',
