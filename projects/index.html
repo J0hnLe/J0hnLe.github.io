@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>JohnLe.org/projects</h1>
+        <nav>
+            <ul>
+                <li><a href="https://johnle.org">johnle.org</a></li>
+                <li><a href="https://linkedin.com/in/johnle">/in/johnle</a></li>
+                <li><a href="https://github.com/9-5">GitHub/9-5</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="work-projects">
+            <h2>Work Projects</h2>
+            <button class="project-button">UTCS Infrastructure Upgrade</button>
+        </section>
+
+        <section id="personal-projects">
+            <h2>Personal Projects</h2>
+            <button class="project-button">WinPE-VNC</button>
+            <button class="project-button">Chromium Intelligence</button>
+        </section>
+    </div>
+
+    <!-- Modal popup -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="" alt="Project Image">
+            <h2 id="project-title"></h2>
+            <p id="project-description"></p>
+        </div>
+    </div>
+
+    <script src="projects.js"></script>
+</body>
+</html>
