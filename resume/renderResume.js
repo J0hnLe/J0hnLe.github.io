@@ -33,4 +33,4 @@ function loadAndDisplayPdf(pdfUrl) {
 
     loadPdf();
 }
-loadAndDisplayPdf('JohnLeResume.pdf');
+loadAndDisplayPdf('https://johnle.org/resume/JohnLeResume.pdf');
