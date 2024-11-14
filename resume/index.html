@@ -3,11 +3,73 @@
         <title>Resume</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.min.js"></script>
-        <link href="https://johnle.org/resume/styles.css" rel="stylesheet"/>
+        <style>
+            /* Windows Mica style theme */
+            body {
+                background-color: #000;
+                margin: 0;
+            }
+            #pdf-viewer {
+                background-color: #090033;
+                border-radius: 12px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 100vh;
+                width: 100vw;
+                overflow-y: auto;
+            }
+            #pdf-viewer canvas {
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+        </style>
     </head>
     <body>
         <div id="pdf-viewer">
         </div>
-        <script href="https://johnle.org/resume/renderResume.js"></script>
+        <script>
+            function loadAndDisplayPdf(pdfUrl) {
+                const pdfViewer = document.getElementById('pdf-viewer');
+
+                async function loadPdf() {
+                    try {
+                        const response = await fetch(pdfUrl);
+                        const bytes = await response.arrayBuffer();
+                        const pdfDocument = await pdfjsLib.getDocument({ data: bytes }).promise;
+
+                        for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber++) {
+                            const page = await pdfDocument.getPage(pageNumber);
+
+                            const scale = 1.5;
+                            const viewport = page.getViewport({ scale });
+
+                            const canvas = document.createElement('canvas');
+                            canvas.height = viewport.height;
+                            canvas.width = viewport.width;
+                            const context = canvas.getContext('2d');
+
+                            const renderContext = {
+                                canvasContext: context,
+                                viewport: viewport
+                            };
+                            await page.render(renderContext);
+
+                            pdfViewer.appendChild(canvas);
+                        }
+                    } catch (error) {
+                        console.error('Error loading PDF:', error);
+                    }
+                }
+
+                loadPdf();
+            }
+
+            loadAndDisplayPdf('JohnLeResume.pdf');
+        </script>
     </body>
 </html>
